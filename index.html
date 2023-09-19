@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/vendors.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <title>Tu Brothers Academy</title>
+	
+  <link rel="icon" type="image/png" href="img/general/logo.png"/>
+  
+</head>
+
+<body class="preloader-visible" data-barba="wrapper">
+  <!-- preloader start -->
+  <div class="preloader js-preloader">
+    <div class="preloader__bg"></div>
+  </div>
+  <!-- preloader end -->
+
+
+  <main class="main-content  ">
+
+    <header data-anim="fade" data-add-bg="bg-dark-1" class="header -type-1 js-header">
+
+
+      <div class="header__container">
+        <div class="row justify-between items-center">
+
+          <div class="col-auto">
+            <div class="header-left">
+
+              <div class="header__logo ">
+                <a data-barba href="index.html">
+                  <img src="img/general/my_logo.png" alt="logo"
+				  style="
+				  height: 50px
+				  ">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="content-wrapper  js-content-wrapper">
+
+      <section class="masthead -type-1 js-mouse-move-container">
+        <div class="masthead__bg">
+          <img src="img/home-1/hero/bg.png" alt="image">
+        </div>
+
+        <div class="container">
+          <div data-anim-wrap class="row y-gap-30 justify-between items-end">
+            <div class="col-xl-6 col-lg-6 col-sm-10">
+              <div class="masthead__content">
+                <h1 data-anim-child="slide-up" class="masthead__title">
+                  Learn New Skills Online with 
+				  <span class="text-green-1 underline">Tu Brothers Academy</span>
+                </h1>
+                <p data-anim-child="slide-up delay-1" class="masthead__text">
+                  Build skills with courses, and degrees online.
+                </p>
+                <div data-anim-child="slide-up delay-2" class="masthead__buttons row x-gap-10 y-gap-10">
+                </div>
+                <div data-anim-child="slide-up delay-3" class="masthead-info row y-gap-15 sm:d-none">
+
+                  <div class="masthead-info__item d-flex items-center text-white">
+                    <div class="masthead-info__icon mr-10">
+                      <img src="img/masthead/icons/1.svg" alt="icon">
+                    </div>
+                    <div class="masthead-info__title lh-1">Build your dream</div>
+                  </div>
+
+                  <div class="masthead-info__item d-flex items-center text-white">
+                    <div class="masthead-info__icon mr-10">
+                      <img src="img/masthead/icons/2.svg" alt="icon">
+                    </div>
+                    <div class="masthead-info__title lh-1">Learn with video courses</div>
+                  </div>
+
+                  <div class="masthead-info__item d-flex items-center text-white">
+                    <div class="masthead-info__icon mr-10">
+                      <img src="img/masthead/icons/3.svg" alt="icon">
+                    </div>
+                    <div class="masthead-info__title lh-1">Learn anything online</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div data-anim-child="slide-up delay-5" class="col-xl-6 col-lg-6">
+              <div class="masthead-image">
+                <div class="masthead-image__el1">
+                  <img class="js-mouse-move" data-move="40" src="img/masthead/1.jpg" alt="image">
+                </div>
+
+                <div class="masthead-image__el2">
+                  <img class="js-mouse-move" data-move="70" src="img/masthead/2.jpg" alt="image">
+                </div>
+
+                <div class="masthead-image__el3">
+                  <img class="js-mouse-move" data-move="40" src="img/masthead/3.jpg" alt="image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <svg class="svg-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="svg-waves__parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" />
+            <use xlink:href="#gentle-wave" x="48" y="3" />
+            <use xlink:href="#gentle-wave" x="48" y="5" />
+            <use xlink:href="#gentle-wave" x="48" y="7" />
+          </g>
+        </svg>
+      </section>
+	  
+	  <section class="page-header -my-type-1">
+        <div class="container">
+          <div class="page-header__content">
+            <div class="row justify-center text-center">
+              <div class="col-auto">
+                <div data-anim="slide-up delay-1">
+
+                  <h1 class="page-header__title">Our Course Pricing</h1>
+
+                </div>
+
+                <div data-anim="slide-up delay-2">
+
+                  <p class="page-header__text">We’re on a mission to deliver engaging, curated courses at a reasonable price.</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+	  
+	  <section class="layout-pt-sm layout-pb-md">
+        <div data-anim-wrap class="container">
+
+          <div class="row y-my-gap-30 justify-between pt-60 lg:pt-40">
+
+            <div class="col-lg-4 col-md-6">
+              <div class="priceCard -type-1 rounded-16 bg-white shadow-2">
+                <div class="priceCard__content py-45 px-60 text-center">
+                  <div class="priceCard__type text-18 lh-11 fw-500 text-dark-1">SERVICE SYMPHONY</div>
+                  <div class="priceCard__price text-45 lh-11 fw-700 text-dark-1 mt-15">$750</div>
+                  <div class="priceCard__period"><s>$1700+</s></div>
+                  <img class="mt-30" src="img/pricing/1.svg" alt="icon">
+                  <div class="priceCard__text text-left pr-15 mt-40">Uniting Waiters and Sommeliers for Excellence</div>
+
+                  <div class="text-left y-gap-15 mt-35">
+
+                    <div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      1 Year Unlimited Access
+                    </div>
+
+                    <div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      Mastering the Art of Waiter Service
+                        Video Training Library
+                        (40+ videos)
+                        (Value $450)
+                    </div>
+
+                    <div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      Pour, Present and Pour - A Journey in Wine Education 
+						Video Training Library
+						(50+ videos)
+						(Value $550)
+                    </div>
+
+
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      Premium Course Materials
+						(Value $500+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      Field tips and lifehacks
+						(Value $200+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      Certificate of Completion
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      New Members Only Facebook (Meta) Group
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      <s>Service Online Member Support</s>
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      <s>Personalized Coaching</s>
+                    </div>
+					
+                    <div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      <s>The Bartender's Artistry
+						Video Training Library
+						(40+ videos) 
+						(Value $500)
+					  </s>
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      <s>Access to Online Resources (Value $250+)</s>
+                    </div>
+					
+                    <div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      <s>Restaurant Operation Pro
+						Video Training Library
+						(40+ videos) 
+						(Value $600)
+					  </s>
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      <s>Exclusive access to Industry Experts</s>
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+                      <s>“Wine Bible” E-book by Karen MacNeil</s>
+                    </div>
+
+                  </div>
+
+                  <div class="d-inline-block mt-30">
+                    <a class="button -md -purple-3 text-purple-1" href="index.html">Get Started Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="priceCard -type-1 rounded-16 bg-white shadow-2">
+                <div class="priceCard__content py-45 px-60 text-center">
+                  <div class="priceCard__type text-18 lh-11 fw-500 text-dark-1">HARMONIA GASTRONOMICA</div>
+                  <div class="priceCard__price text-45 lh-11 fw-700 text-dark-1 mt-15">$999</div>
+                  <div class="priceCard__period"><s>$2450+</s></div>
+                  <img class="mt-30" src="img/pricing/2.svg" alt="icon">
+                  <div class="priceCard__text text-left pr-15 mt-40">Wine, Bar, and Waiter Excellence</div>
+
+                  <div class="text-left y-gap-15 mt-35">
+
+                    <div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  1 Year Unlimited Access
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Mastering the Art of Waiter Service
+						Video Training Library
+						(40+ videos)
+						(Value $450)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Pour, Present and Pour - A Journey in Wine Education 
+						Video Training Library
+						(50+ videos)
+						(Value $550)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Premium Course Materials (Value $500+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Field tips and lifehacks (Value $200+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Certificate of Completion
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  New Members Only Facebook (Meta) Group
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Harmonia Online Member Support
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Personalized Coaching
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  The Bartender's Artistry
+						Video Training Library
+						(40+ videos) 
+						(Value $500)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Access to Online Resources (Value $250+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  <s>Restaurant Operation Pro
+						Video Training Library
+						(40+ videos) 
+						(Value $600)
+					  </s>
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  <s>Exclusive access to Industry Experts</s>
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  <s>“Wine Bible” E-book by Karen MacNeil</s>
+                    </div>
+
+                  </div>
+
+                  <div class="d-inline-block mt-30">
+                    <a class="button -md -purple-3 text-purple-1" href="signup.html">Get Started Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="priceCard -type-1 rounded-16 bg-white shadow-2">
+                <div class="priceCard__content py-45 px-60 text-center">
+                  <div class="priceCard__type text-18 lh-11 fw-500 text-dark-1">HOSPITALITY MAESTRO</div>
+                  <div class="priceCard__price text-45 lh-11 fw-700 text-dark-1 mt-15">$1500</div>
+                  <div class="priceCard__period"><s>$3050+</s></div>
+                  <img class="mt-30" src="img/pricing/3.svg" alt="icon">
+                  <div class="priceCard__text text-left pr-15 mt-40">Elevate your service, wine, mixology and management skills</div>
+
+                  <div class="text-left y-gap-15 mt-35">
+
+                    <div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  1 Year Unlimited Access
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Mastering the Art of Waiter Service
+						Video Training Library
+						(40+ videos)
+						(Value $450)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Pour, Present and Pour - A Journey in Wine Education 
+						Video Training Library
+						(50+ videos)
+						(Value $550)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Premium Course Materials (Value $500+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Field tips and lifehacks (Value $200+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Certificate of Completion
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  New Members Only Facebook (Meta) Group
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Maestro Online Member Support
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Personalized Coaching
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  The Bartender's Artistry
+						Video Training Library
+						(40+ videos) 
+						(Value $500)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Access to Online Resources (Value $250+)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Restaurant Operation Pro
+						Video Training Library
+						(40+ videos) 
+						(Value $600)
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  Exclusive access to Industry Experts
+                    </div>
+					
+					<div>
+                      <i class="text-purple-1 pr-8" data-feather="check"></i>
+					  “Wine Bible” E-book by Karen MacNeil
+                    </div>
+
+                  </div>
+
+                  <div class="d-inline-block mt-30">
+                    <a class="button -md -purple-3 text-purple-1" href="signup.html">Get Started Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+	  
+	  <section class="layout-pt-md my-layout-pb-lg">
+        <div data-anim-wrap class="container">
+          <div class="row justify-center text-center">
+            <div class="sectionTitle">
+
+                <h2 class="sectionTitle__title">Our Partners</h2>
+
+              </div>
+          </div>
+
+          <div class="row y-gap-30 justify-center sm:justify-start items-center pt-60 md:pt-50">
+
+            <div data-anim-child="slide-up delay-1" class="col-lg-auto col-md-2 col-sm-3 col-4">
+              <div class="d-flex justify-center items-center px-4">
+                <img class="w-1/1" src="img/clients/future_survey.png" alt="clients image" style="height: 120px">
+              </div>
+            </div>
+
+            <div data-anim-child="slide-up delay-1" class="col-lg-auto col-md-2 col-sm-3 col-4">
+              <div class="d-flex justify-center items-center px-4">
+                <img class="w-1/1" src="img/clients/logo_with_name.png" alt="clients image" style="height: 120px">
+              </div>
+            </div>
+
+            <div data-anim-child="slide-up delay-1" class="col-lg-auto col-md-2 col-sm-3 col-4">
+              <div class="d-flex justify-center items-center px-4">
+                <img class="w-1/1" src="img/clients/NT logo.png" alt="clients image" style="height: 120px">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-pt-lg layout-pb-lg bg-beige-1">
+        <div data-anim-wrap class="container">
+          <div class="row y-gap-30 justify-between items-center">
+            <div class="col-xl-5 col-lg-6 col-md-10 order-2 order-lg-1">
+              <div class="about-content">
+                <h2 data-anim-child="slide-up delay-1" class="about-content__title"><span>Learn</span> new skills when and where you like.</h2>
+                <p data-anim-child="slide-up delay-2" class="about-content__text">Use the list below to bring attention to your product’s key<br> differentiator.</p>
+                <div data-anim-child="slide-up delay-3" class="y-gap-20 pt-30">
+
+                  <div class="d-flex items-center">
+                    <div class="about-content-list__icon">
+                      <i class="icon" data-feather="check"></i>
+                    </div>
+                    <div class="about-content-list__title">Hand-picked authors</div>
+                  </div>
+
+                  <div class="d-flex items-center">
+                    <div class="about-content-list__icon">
+                      <i class="icon" data-feather="check"></i>
+                    </div>
+                    <div class="about-content-list__title">Easy to follow curriculum</div>
+                  </div>
+
+                  <div class="d-flex items-center">
+                    <div class="about-content-list__icon">
+                      <i class="icon" data-feather="check"></i>
+                    </div>
+                    <div class="about-content-list__title">Free courses</div>
+                  </div>
+
+                  <div class="d-flex items-center">
+                    <div class="about-content-list__icon">
+                      <i class="icon" data-feather="check"></i>
+                    </div>
+                    <div class="about-content-list__title">Money-back guarantee</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-5 col-lg-6 order-1 order-lg-2">
+              <div data-anim-child="slide-up delay-5" class="about-image">
+                <img src="img/about/1.jpg" alt="image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-pt-md layout-pb-md bg-purple-1">
+        <div class="container">
+          <div class="row y-gap-20 justify-between items-center">
+            <div class="col-xl-4 col-lg-5">
+              <h2 class="text-30 lh-15 text-white">
+                Join <span class="text-green-1">Tu Brothers Academy</span> To Learn New Skills
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer -type-1 bg-dark-1 -green-links">
+        <div class="container">
+          <div class="footer-header">
+            <div class="row y-gap-20 justify-between items-center">
+              <div class="col-auto">
+                <div class="footer-header__logo">
+                  <img src="img/footer/my_footer-logo.png" alt="logo" style="height: 50px;"
+				  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="py-30 border-top-light-15 justify-center">
+               © 2023 Tu Brothers Academy. All Right Reserved.
+          </div>
+        </div>
+      </footer>
+
+
+    </div>
+  </main>
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <script src="js/vendors.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

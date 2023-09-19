@@ -6970,6 +6970,11 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 40px;
 }
 
+.page-header.-my-type-1 {
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+
 @media (max-width: 767px) {
   .page-header.-type-1 {
     padding-top: 60px;
@@ -13494,6 +13499,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .y-gap-30 {
   margin-top: -15px;
+  margin-bottom: -15px;
+}
+
+.y-my-gap-30 {
+  margin-top: -80px;
   margin-bottom: -15px;
 }
 
