@@ -1211,7 +1211,7 @@ body {
   max-width: 100%;
   background-color: white;
   color: var(--color-light-1);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
 }
 
@@ -13856,6 +13856,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .layout-pb-lg {
   padding-bottom: 120px;
+}
+
+.layout-pb-lg-40 {
+  padding-bottom: 40px;
 }
 
 .my-layout-pb-lg {
