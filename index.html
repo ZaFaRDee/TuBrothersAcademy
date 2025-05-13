@@ -32,12 +32,16 @@
   <!-- preloader end -->
 
 <!-- FULLSCREEN VIDEO SECTION -->
-<section style="height: 100vh; background-color: #140342; display: flex; justify-content: center; align-items: center;">
-  <video autoplay muted controls playsinline
-    style="width: auto; max-width: 100%; height: 100vh; object-fit: cover; border-radius: 0; display: block;">
-    <source src="video/intro.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<section style="background-color: #140342; height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding-top: 100px;">
+  <div style="position: relative; width: auto; height: calc(100vh - 100px); aspect-ratio: 16/9;">
+    <iframe
+      src="https://www.youtube.com/embed/zzB34TyfTLc?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media; fullscreen"
+      allowfullscreen
+      style="width: 100%; height: 100%; border: none; border-radius: 12px;">
+    </iframe>
+  </div>
 </section>
 
   <main class="main-content  ">
