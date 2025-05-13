@@ -31,6 +31,14 @@
   </div>
   <!-- preloader end -->
 
+<!-- FULLSCREEN VIDEO SECTION -->
+<section style="height: 100vh; background-color: #140342; display: flex; justify-content: center; align-items: center;">
+  <video autoplay muted controls playsinline
+    style="width: auto; max-width: 100%; height: 100vh; object-fit: cover; border-radius: 0; display: block;">
+    <source src="video/intro.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
 
   <main class="main-content  ">
 
@@ -283,6 +291,77 @@
           </div>
         </div>
       </section>
+			  
+	 <!-- ARTICLES GRID SECTION -->
+	  <section id="articles" class="layout-pt-lg layout-pb-lg" style="background-color: #140342;">
+  <div class="container">
+    <div class="row justify-center mb-50 text-center">
+      <div class="col-auto">
+        <h2 class="text-36 fw-700 text-white">Latest Articles</h2>
+        <p class="text-16 mt-10 text-white">Explore insights from the founder</p>
+      </div>
+    </div>
+
+    <div class="row y-gap-40 items-start">
+
+      <!-- LEFT SIDE: Article cards -->
+      <div class="col-lg-8">
+        <div class="row y-gap-30">
+          <!-- Article 1 -->
+          <div class="col-md-6">
+            <div class="bg-white shadow-2 rounded-12 px-30 py-40 h-100">
+              <h3 class="text-20 fw-600 mb-20">Can We Apply Cruise Ship Service Principles to Everyday Restaurants?</h3>
+              <p class="text-15 text-dark-1 mb-25">
+                When we think of dining at sea, we often picture endless buffets, silver platters, and uniformed stewards gliding between tables. But behind today’s luxurious cruise ship meals lies a fascinating...
+              </p>
+              <a href="article-1.html" class="button -sm -purple-3 text-purple-1 w-100">Read More →</a>
+            </div>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="col-md-6">
+            <div class="bg-white shadow-2 rounded-12 px-30 py-40 h-100">
+              <h3 class="text-20 fw-600 mb-20">The Hidden Secrets Behind Restaurant Success: What Only the Best Owners, Bartenders, and Waiters Know</h3>
+              <p class="text-15 text-dark-1 mb-25">
+                In the modern hospitality industry, the dining experience is no longer just about food...
+              </p>
+              <a href="article-2.html" class="button -sm -purple-3 text-purple-1 w-100">Read More →</a>
+            </div>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="col-md-6">
+            <div class="bg-white shadow-2 rounded-12 px-30 py-40 h-100">
+              <h3 class="text-20 fw-600 mb-20">The Hidden Engine of Restaurant Success: A Professional Examination of Waitstaff Mastery</h3>
+              <p class="text-15 text-dark-1 mb-25">
+                In the competitive, reputation-driven world...
+              </p>
+              <a href="article-3.html" class="button -sm -purple-3 text-purple-1 w-100">Read More →</a>
+            </div>
+          </div>
+
+          <!-- Article 4 -->
+          <div class="col-md-6">
+            <div class="bg-white shadow-2 rounded-12 px-30 py-40 h-100">
+              <h3 class="text-20 fw-600 mb-20">The 13 Core Waiter Service Styles: A Comprehensive Professional Guide</h3>
+              <p class="text-15 text-dark-1 mb-25">
+                In the global hospitality industry, the artistry of food and beverage service extends far...
+              </p>
+              <a href="article-4.html" class="button -sm -purple-3 text-purple-1 w-100">Read More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: Picture -->
+      <div class="col-lg-4 text-center">
+        <img src="img/about/3.jpeg" alt="Illustration" style="max-width: 100%; border-radius: 12px;">
+      </div>
+
+    </div>
+  </div>
+</section>
+
 	  
 	  <section class="layout-pt-md layout-pb-lg-40">
         <div class="container">
@@ -831,14 +910,14 @@
                   <div class="d-flex justify-center items-center size-60 rounded-full bg-light-7">
                     <img src="img/contact-1/1.svg" alt="icon">
                   </div>
-                  <div class="ml-20">3845 18th Avenue<br>Brooklyn, NY 11218 US</div>
+                  <div class="ml-20">63-48 Alderton St<br>Flushing, NY 11374 US</div>
                 </div>
 
                 <div class="d-flex items-center">
                   <div class="d-flex justify-center items-center size-60 rounded-full bg-light-7">
                     <img src="img/contact-1/2.svg" alt="icon">
                   </div>
-                  <div class="ml-20">+(1) 917-951-3823</div>
+                  <div class="ml-20">+1 (929) 690-9972</div>
                 </div>
 
                 <div class="d-flex items-center">
@@ -905,6 +984,18 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
   <script src="js/vendors.js"></script>
   <script src="js/main.js"></script>
+  
+  <script>
+	const toggleBtn = document.getElementById("toggle-article");
+	const fullArticle = document.getElementById("full-article");
+
+	toggleBtn.addEventListener("click", () => {
+		const isVisible = fullArticle.style.display === "block";
+		fullArticle.style.display = isVisible ? "none" : "block";
+		toggleBtn.textContent = isVisible ? "Read More ↓" : "Hide Article ↑";
+	});
+  </script>
+
 </body>
 
 </html>
