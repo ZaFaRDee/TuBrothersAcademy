@@ -72,10 +72,13 @@ gradient strip doesn't appear in already-CTA-heavy contexts.
 
 ## Deployment
 
-Configured for **Netlify** out of the box:
+Configured for **Vercel** out of the box:
 
-- `netlify.toml` sets the build command, publish dir, security headers, and a 404 redirect
-- Push to your default branch → Netlify auto-deploys
+- `vercel.json` sets the framework, build command, output dir, security headers, and long-cache rules for `/_astro/*`
+- `cleanUrls: true` strips trailing slashes for nicer URLs
+- Push to your default branch → Vercel auto-deploys
+
+For local Vercel testing: `npx vercel dev` (after `vercel link`).
 
 ## Brand colors
 
