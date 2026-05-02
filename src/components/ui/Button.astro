@@ -1,0 +1,66 @@
+---
+interface Props {
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary" | "ghost" | "outline" | "white";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+  fullWidth?: boolean;
+  ariaLabel?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  href,
+  type = "button",
+  variant = "primary",
+  size = "md",
+  class: className = "",
+  fullWidth = false,
+  ariaLabel,
+  target,
+  rel,
+} = Astro.props;
+
+const base =
+  "group relative inline-flex items-center justify-center gap-2 font-semibold tracking-tight transition-all duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white whitespace-nowrap";
+
+const sizes: Record<string, string> = {
+  sm: "text-sm px-4 py-2 rounded-lg",
+  md: "text-[15px] px-5 py-3 rounded-xl",
+  lg: "text-base px-7 py-4 rounded-2xl",
+};
+
+const variants: Record<string, string> = {
+  primary:
+    "bg-brand-600 text-white shadow-brand-md hover:bg-brand-700 hover:shadow-brand-lg hover:-translate-y-0.5 active:translate-y-0",
+  secondary:
+    "bg-ink-900 text-white hover:bg-ink-800 hover:-translate-y-0.5",
+  ghost:
+    "bg-brand-50 text-brand-700 hover:bg-brand-100",
+  outline:
+    "bg-white text-ink-900 border border-ink-200 hover:border-brand-400 hover:text-brand-700 hover:bg-brand-50",
+  white:
+    "bg-white text-ink-900 hover:bg-ink-50 hover:-translate-y-0.5 shadow-md",
+};
+
+const classes = [
+  base,
+  sizes[size],
+  variants[variant],
+  fullWidth ? "w-full" : "",
+  className,
+].join(" ");
+---
+{
+  href ? (
+    <a href={href} class={classes} aria-label={ariaLabel} target={target} rel={rel}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} aria-label={ariaLabel}>
+      <slot />
+    </button>
+  )
+}

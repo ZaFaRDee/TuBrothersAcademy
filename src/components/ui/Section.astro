@@ -1,0 +1,35 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  size?: "sm" | "md" | "lg" | "xl";
+  bg?: "white" | "alt" | "dark" | "gradient" | "transparent";
+}
+const { id, class: className = "", size = "lg", bg = "white" } = Astro.props;
+
+const sizeClasses: Record<string, string> = {
+  sm: "py-12 md:py-16",
+  md: "py-16 md:py-24",
+  lg: "py-20 md:py-32",
+  xl: "py-24 md:py-40",
+};
+
+const bgClasses: Record<string, string> = {
+  white: "bg-white text-ink-900",
+  alt: "bg-ink-50 text-ink-900",
+  dark: "bg-ink-950 text-white",
+  gradient: "bg-gradient-to-b from-ink-950 via-brand-950 to-ink-950 text-white",
+  transparent: "",
+};
+---
+<section
+  id={id}
+  class:list={[
+    "relative overflow-hidden",
+    sizeClasses[size],
+    bgClasses[bg],
+    className,
+  ]}
+>
+  <slot />
+</section>

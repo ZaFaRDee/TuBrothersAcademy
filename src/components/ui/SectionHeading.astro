@@ -1,0 +1,47 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: "left" | "center";
+  light?: boolean;
+  class?: string;
+}
+const { eyebrow, title, subtitle, align = "center", light = false, class: className = "" } = Astro.props;
+---
+<div
+  class:list={[
+    "max-w-3xl",
+    align === "center" ? "mx-auto text-center" : "",
+    className,
+  ]}
+>
+  {eyebrow && (
+    <div
+      class:list={[
+        "anim-on-scroll inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-semibold tracking-[0.18em] uppercase rounded-full",
+        light ? "bg-white/10 text-white border border-white/20" : "bg-brand-50 text-brand-700 border border-brand-100",
+      ]}
+    >
+      <span class="size-1.5 rounded-full bg-current opacity-70"></span>
+      {eyebrow}
+    </div>
+  )}
+  <h2
+    class:list={[
+      "anim-on-scroll delay-1 text-balance text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-display font-bold leading-[1.05] tracking-tight",
+      light ? "text-white" : "text-ink-900",
+    ]}
+    set:html={title}
+  />
+  {subtitle && (
+    <p
+      class:list={[
+        "anim-on-scroll delay-2 mt-5 text-pretty text-base md:text-lg leading-relaxed",
+        light ? "text-white/70" : "text-ink-500",
+      ]}
+    >
+      {subtitle}
+    </p>
+  )}
+</div>

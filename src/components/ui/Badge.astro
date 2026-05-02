@@ -1,0 +1,24 @@
+---
+interface Props {
+  variant?: "brand" | "soft" | "outline" | "dark" | "white";
+  class?: string;
+}
+const { variant = "soft", class: className = "" } = Astro.props;
+
+const variants: Record<string, string> = {
+  brand: "bg-brand-600 text-white",
+  soft: "bg-brand-50 text-brand-700 border border-brand-100",
+  outline: "border border-ink-200 text-ink-700 bg-white",
+  dark: "bg-ink-900 text-white",
+  white: "bg-white/10 text-white border border-white/20 backdrop-blur",
+};
+---
+<span
+  class:list={[
+    "inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold tracking-wide uppercase rounded-full",
+    variants[variant],
+    className,
+  ]}
+>
+  <slot />
+</span>

@@ -1,6 +1,176 @@
 ---
-// Stub — full version comes in Stage 2
+import { Image } from "astro:assets";
+import { NAV, SITE } from "~/data/site";
+import logoLight from "~/assets/logo-light.png";
+import Button from "~/components/ui/Button.astro";
+
+const pathname = Astro.url.pathname;
 ---
-<header class="fixed top-0 inset-x-0 z-50 p-4 bg-ink-950/80 backdrop-blur text-white">
-  <div class="container-page text-sm">TU Brothers Academy</div>
+
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out"
+  data-state="top"
+>
+  <div class="container-page">
+    <div
+      class="mt-3 md:mt-5 flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-ink-950/60 backdrop-blur-xl shadow-lg shadow-ink-950/20 px-4 py-2.5 md:px-5 md:py-3 transition-all duration-500"
+      id="header-pill"
+    >
+      <a href="/" class="flex items-center gap-2.5 group" aria-label={`${SITE.name} home`}>
+        <Image
+          src={logoLight}
+          alt={SITE.name}
+          width={140}
+          height={40}
+          loading="eager"
+          class="h-9 md:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+        />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+        {
+          NAV.map((item) => {
+            const isActive = item.href === pathname || (item.href !== "/" && pathname.startsWith(item.href));
+            return (
+              <a
+                href={item.href}
+                class:list={[
+                  "relative px-3.5 py-2 text-sm font-medium rounded-lg transition-colors duration-200",
+                  isActive ? "text-white" : "text-white/70 hover:text-white",
+                ]}
+              >
+                {item.label}
+                {isActive && (
+                  <span class="absolute inset-x-3 -bottom-0.5 h-0.5 bg-gradient-to-r from-brand-400 to-brand-600 rounded-full" />
+                )}
+              </a>
+            );
+          })
+        }
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <Button href="/contact" size="sm" variant="primary" class="hidden sm:inline-flex">
+          Get started
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="size-4 transition-transform duration-300 group-hover:translate-x-0.5">
+            <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </Button>
+
+        <button
+          id="mobile-menu-toggle"
+          class="lg:hidden grid place-items-center size-10 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-colors"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 z-40 pointer-events-none opacity-0 transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <div id="mobile-menu-backdrop" class="absolute inset-0 bg-ink-950/70 backdrop-blur-sm"></div>
+    <div
+      id="mobile-menu-panel"
+      class="absolute inset-x-3 top-3 rounded-3xl bg-ink-950 border border-white/10 shadow-2xl p-6 translate-y-[-20px] opacity-0 transition-all duration-400 ease-out"
+    >
+      <div class="flex items-center justify-between mb-6">
+        <Image src={logoLight} alt={SITE.name} width={120} height={32} class="h-8 w-auto" />
+        <button
+          id="mobile-menu-close"
+          class="grid place-items-center size-10 rounded-xl bg-white/5 hover:bg-white/10 text-white"
+          aria-label="Close menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5">
+            <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-1" aria-label="Mobile primary">
+        {
+          NAV.map((item, i) => (
+            <a
+              href={item.href}
+              class="mobile-link group flex items-center justify-between px-4 py-3.5 rounded-xl text-white text-lg font-medium hover:bg-white/5 transition-colors"
+              style={`transition-delay: ${i * 40}ms`}
+            >
+              <span>{item.label}</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-white/40 group-hover:text-brand-400 group-hover:translate-x-1 transition-all">
+                <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <Button href="/contact" size="md" variant="primary" fullWidth>Get started</Button>
+        <p class="mt-4 text-sm text-white/50 text-center">{SITE.email}</p>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const pill = document.getElementById("header-pill");
+  const onScroll = () => {
+    if (!header || !pill) return;
+    if (window.scrollY > 16) {
+      header.dataset.state = "scrolled";
+      pill.classList.add("md:mt-2");
+    } else {
+      header.dataset.state = "top";
+      pill.classList.remove("md:mt-2");
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const panel = document.getElementById("mobile-menu-panel");
+  const close = document.getElementById("mobile-menu-close");
+  const backdrop = document.getElementById("mobile-menu-backdrop");
+
+  const open = () => {
+    if (!menu || !panel) return;
+    menu.classList.remove("pointer-events-none", "opacity-0");
+    menu.setAttribute("aria-hidden", "false");
+    toggle?.setAttribute("aria-expanded", "true");
+    requestAnimationFrame(() => {
+      panel.classList.remove("translate-y-[-20px]", "opacity-0");
+    });
+    document.body.style.overflow = "hidden";
+  };
+  const closeMenu = () => {
+    if (!menu || !panel) return;
+    panel.classList.add("translate-y-[-20px]", "opacity-0");
+    setTimeout(() => {
+      menu.classList.add("pointer-events-none", "opacity-0");
+      menu.setAttribute("aria-hidden", "true");
+      toggle?.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }, 280);
+  };
+
+  toggle?.addEventListener("click", open);
+  close?.addEventListener("click", closeMenu);
+  backdrop?.addEventListener("click", closeMenu);
+  document.querySelectorAll(".mobile-link").forEach((a) =>
+    a.addEventListener("click", closeMenu)
+  );
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+</script>

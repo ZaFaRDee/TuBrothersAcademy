@@ -1,3 +1,53 @@
 ---
-// Stub — full version comes in Stage 2
+import Container from "~/components/ui/Container.astro";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  title = "Ready to elevate your craft?",
+  subtitle = "Join the community of waiters, sommeliers and operators training with us.",
+  primaryHref = "/contact",
+  primaryLabel = "Get in touch",
+  secondaryHref = "/courses",
+  secondaryLabel = "Browse courses",
+} = Astro.props;
 ---
+
+<section class="relative bg-white pt-12 md:pt-20 pb-0">
+  <Container>
+    <div class="anim-on-scroll relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 p-8 sm:p-12 md:p-16 shadow-brand-lg text-white">
+      <div aria-hidden="true" class="absolute -right-20 -top-20 size-60 rounded-full bg-white/10 blur-3xl"></div>
+      <div aria-hidden="true" class="absolute -left-16 -bottom-16 size-72 rounded-full bg-brand-300/20 blur-3xl"></div>
+      <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div class="max-w-xl">
+          <h3 class="text-3xl md:text-4xl font-display font-bold leading-tight">{title}</h3>
+          <p class="mt-3 text-white/80">{subtitle}</p>
+        </div>
+        <div class="flex gap-3 flex-wrap">
+          <a
+            href={primaryHref}
+            class="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-brand-700 font-semibold rounded-xl hover:-translate-y-0.5 transition-all shadow-lg"
+          >
+            {primaryLabel}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="size-4">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a
+            href={secondaryHref}
+            class="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
+          >
+            {secondaryLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
