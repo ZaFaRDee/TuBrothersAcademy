@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#190F5F"/>
+      <stop offset="55%" stop-color="#2A1C8F"/>
+      <stop offset="100%" stop-color="#0F0F1F"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.2" cy="0.3" r="0.6">
+      <stop offset="0%" stop-color="#7857EC" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#7857EC" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.85" cy="0.85" r="0.5">
+      <stop offset="0%" stop-color="#9277F0" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#9277F0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <g transform="translate(80,80)">
+    <rect width="68" height="68" rx="14" fill="#6149E8"/>
+    <path d="M16 24 L34 16 L52 24 L52 46 L34 54 L16 46 Z" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M16 24 L34 32 L52 24" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M34 32 L34 54" fill="none" stroke="white" stroke-width="3"/>
+  </g>
+
+  <text x="170" y="130" fill="white" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" letter-spacing="2">TU BROTHERS ACADEMY</text>
+
+  <text x="80" y="320" fill="white" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="74" font-weight="800" letter-spacing="-2">
+    <tspan x="80" dy="0">Master the craft of</tspan>
+    <tspan x="80" dy="86" fill="#B5A1F6">world-class hospitality.</tspan>
+  </text>
+
+  <text x="80" y="500" fill="rgba(255,255,255,0.7)" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="500">
+    On-demand training for waiters, sommeliers and operators.
+  </text>
+
+  <rect x="80" y="540" width="1040" height="1" fill="rgba(255,255,255,0.15)"/>
+  <text x="80" y="582" fill="rgba(255,255,255,0.6)" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="500">
+    tubrothersacademy.com
+  </text>
+  <text x="1120" y="582" text-anchor="end" fill="#B5A1F6" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="3">
+    8+ YEARS · 40+ COUNTRIES · 171 CITIES
+  </text>
+</svg>

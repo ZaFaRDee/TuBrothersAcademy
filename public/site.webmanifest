@@ -1,0 +1,12 @@
+{
+  "name": "TU Brothers Academy",
+  "short_name": "TU Brothers",
+  "description": "World-class hospitality training, on demand.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F0F1F",
+  "theme_color": "#6149E8",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
