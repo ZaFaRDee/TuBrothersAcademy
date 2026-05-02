@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import Container from "~/components/ui/Container.astro";
+import Section from "~/components/ui/Section.astro";
+import { PARTNERS } from "~/data/partners";
+
+const loop = [...PARTNERS, ...PARTNERS];
+---
+<Section size="md" bg="white">
+  <Container>
+    <p class="text-center text-xs font-semibold uppercase tracking-[0.22em] text-ink-400 mb-10">
+      Trusted by partners across the industry
+    </p>
+    <div class="relative overflow-hidden mask-fade-r">
+      <div class="flex items-center gap-14 md:gap-20 w-max animate-marquee">
+        {loop.map((p) => (
+          <div class="shrink-0 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+            <Image src={p.logo} alt={p.name} widths={[160, 240]} sizes="160px" class="h-12 md:h-14 w-auto object-contain" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </Container>
+</Section>

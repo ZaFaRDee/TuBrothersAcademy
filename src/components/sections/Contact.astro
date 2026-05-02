@@ -1,0 +1,244 @@
+---
+import Container from "~/components/ui/Container.astro";
+import Section from "~/components/ui/Section.astro";
+import SectionHeading from "~/components/ui/SectionHeading.astro";
+import { SITE } from "~/data/site";
+
+interface Props {
+  hideHeading?: boolean;
+}
+const { hideHeading = false } = Astro.props;
+---
+
+<Section id="contact" size="lg" bg="white">
+  <Container>
+    {!hideHeading && (
+      <SectionHeading
+        eyebrow="Contact"
+        title="Let's <span class='gradient-text'>connect</span>."
+        subtitle="Questions about the program, partnerships, or speaking inquiries — we'd love to hear from you."
+      />
+    )}
+
+    <div class="mt-16 grid lg:grid-cols-12 gap-10 lg:gap-14">
+      <aside class="lg:col-span-5">
+        <div class="anim-on-scroll relative overflow-hidden rounded-3xl bg-gradient-to-br from-ink-950 via-ink-900 to-brand-950 text-white p-8 md:p-10 h-full">
+          <div aria-hidden="true" class="absolute -top-16 -right-16 size-48 rounded-full bg-brand-500/30 blur-3xl"></div>
+          <div aria-hidden="true" class="absolute -bottom-20 -left-20 size-56 rounded-full bg-brand-700/40 blur-3xl"></div>
+
+          <div class="relative">
+            <h3 class="text-2xl font-display font-bold">Get in touch</h3>
+            <p class="mt-2 text-white/70">We typically reply within one business day.</p>
+
+            <ul class="mt-8 space-y-5">
+              <li class="flex items-start gap-4">
+                <span class="grid place-items-center size-11 rounded-xl bg-white/10 backdrop-blur shrink-0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-5 text-brand-300">
+                    <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
+                  </svg>
+                </span>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-white/50 font-semibold">Email</div>
+                  <a href={`mailto:${SITE.email}`} class="text-white hover:text-brand-300 transition-colors">{SITE.email}</a>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="grid place-items-center size-11 rounded-xl bg-white/10 backdrop-blur shrink-0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-5 text-brand-300">
+                    <path d="M22 16.92V21a1 1 0 01-1.09 1A19 19 0 012 4.09 1 1 0 013 3h4.09a1 1 0 011 .75l1 4a1 1 0 01-.27 1L7 10a16 16 0 007 7l1.25-1.82a1 1 0 011-.27l4 1a1 1 0 01.75 1V21" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-white/50 font-semibold">Phone</div>
+                  <a href={`tel:${SITE.phone.replace(/[^0-9+]/g, "")}`} class="text-white hover:text-brand-300 transition-colors">{SITE.phone}</a>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="grid place-items-center size-11 rounded-xl bg-white/10 backdrop-blur shrink-0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-5 text-brand-300">
+                    <path d="M12 21s-7-7-7-12a7 7 0 1114 0c0 5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>
+                  </svg>
+                </span>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-white/50 font-semibold">Office</div>
+                  <span class="text-white">{SITE.address}</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="mt-10 pt-8 border-t border-white/10">
+              <div class="text-xs uppercase tracking-wider text-white/50 font-semibold mb-3">Follow</div>
+              <div class="flex items-center gap-2">
+                <a href={SITE.social.instagram} target="_blank" rel="noopener" aria-label="Instagram" class="grid place-items-center size-10 rounded-xl bg-white/10 hover:bg-brand-600 transition-colors">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-4">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
+                  </svg>
+                </a>
+                <a href={SITE.social.youtube} target="_blank" rel="noopener" aria-label="YouTube" class="grid place-items-center size-10 rounded-xl bg-white/10 hover:bg-brand-600 transition-colors">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-4">
+                    <path d="M22 8s-.2-1.6-.8-2.3c-.7-.9-1.6-.9-2-1C16 4.5 12 4.5 12 4.5s-4 0-7.2.2c-.4.1-1.3.1-2 1C2.2 6.4 2 8 2 8S1.8 9.9 1.8 11.7v1.3C1.8 14.8 2 16.7 2 16.7s.2 1.6.8 2.3c.7.9 1.7.9 2.1 1 1.5.2 6.6.2 6.6.2s4 0 7.2-.2c.4-.1 1.3-.1 2-1 .6-.7.8-2.3.8-2.3s.2-1.9.2-3.7v-1.3C22.2 9.9 22 8 22 8z"/>
+                    <path d="M10 15V9l5 3-5 3z" fill="currentColor"/>
+                  </svg>
+                </a>
+                <a href={SITE.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" class="grid place-items-center size-10 rounded-xl bg-white/10 hover:bg-brand-600 transition-colors">
+                  <svg viewBox="0 0 24 24" fill="currentColor" class="size-4">
+                    <path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.97-1.8-2.97-1.8 0-2.08 1.4-2.08 2.87V21h-4V9z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="lg:col-span-7">
+        <form
+          id="contact-form"
+          class="anim-on-scroll bg-white rounded-3xl p-7 md:p-10 ring-1 ring-ink-100 shadow-sm"
+          method="POST"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" tabindex="-1" autocomplete="off" />
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="text-sm font-semibold text-ink-900">Name</span>
+              <input
+                type="text"
+                name="name"
+                required
+                autocomplete="name"
+                placeholder="Jane Doe"
+                class="mt-2 block w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
+              />
+            </label>
+            <label class="block">
+              <span class="text-sm font-semibold text-ink-900">Email</span>
+              <input
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+                class="mt-2 block w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
+              />
+            </label>
+          </div>
+
+          <label class="block mt-5">
+            <span class="text-sm font-semibold text-ink-900">I'm interested in</span>
+            <select
+              name="topic"
+              class="mt-2 block w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
+            >
+              <option value="general">General question</option>
+              <option value="service-symphony">Service Symphony plan</option>
+              <option value="harmonia-gastronomica">Harmonia Gastronomica plan</option>
+              <option value="hospitality-maestro">Hospitality Maestro plan</option>
+              <option value="partnership">Partnership / B2B</option>
+              <option value="press">Press / speaking</option>
+            </select>
+          </label>
+
+          <label class="block mt-5">
+            <span class="text-sm font-semibold text-ink-900">Message</span>
+            <textarea
+              name="message"
+              required
+              rows="6"
+              placeholder="Tell us a bit about your goals…"
+              class="mt-2 block w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all resize-y"
+            ></textarea>
+          </label>
+
+          <div class="mt-7 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
+            <p class="text-xs text-ink-500">By submitting, you agree to our <a href="/privacy" class="underline hover:text-brand-700">privacy policy</a>.</p>
+            <button
+              type="submit"
+              class="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-600 text-white font-semibold rounded-xl shadow-brand-md hover:bg-brand-700 hover:shadow-brand-lg hover:-translate-y-0.5 transition-all w-full sm:w-auto"
+            >
+              <span data-default>Send message</span>
+              <span data-loading class="hidden">Sending…</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="size-4 transition-transform group-hover:translate-x-0.5">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div id="form-success" class="hidden mt-6 flex items-start gap-3 p-4 rounded-xl bg-green-50 border border-green-200 text-green-800">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 mt-0.5 shrink-0">
+              <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <div class="font-semibold">Message received</div>
+              <div class="text-sm">Thanks — we'll get back to you within one business day.</div>
+            </div>
+          </div>
+
+          <div id="form-error" class="hidden mt-6 flex items-start gap-3 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 mt-0.5 shrink-0">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <div>
+              <div class="font-semibold">Couldn't send</div>
+              <div class="text-sm">Please try again or email us directly.</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<script>
+  const init = () => {
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    if (!form) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get("plan");
+    if (plan) {
+      const select = form.querySelector<HTMLSelectElement>('select[name="topic"]');
+      if (select && Array.from(select.options).some((o) => o.value === plan)) {
+        select.value = plan;
+      }
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const success = document.getElementById("form-success");
+      const error = document.getElementById("form-error");
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const defaultLabel = form.querySelector<HTMLElement>("[data-default]");
+      const loadingLabel = form.querySelector<HTMLElement>("[data-loading]");
+
+      success?.classList.add("hidden");
+      error?.classList.add("hidden");
+      submitBtn?.setAttribute("disabled", "true");
+      defaultLabel?.classList.add("hidden");
+      loadingLabel?.classList.remove("hidden");
+
+      const formData = new FormData(form);
+      if (formData.get("bot-field")) {
+        success?.classList.remove("hidden");
+        form.reset();
+        return;
+      }
+
+      try {
+        await new Promise((r) => setTimeout(r, 900));
+        success?.classList.remove("hidden");
+        form.reset();
+      } catch {
+        error?.classList.remove("hidden");
+      } finally {
+        submitBtn?.removeAttribute("disabled");
+        defaultLabel?.classList.remove("hidden");
+        loadingLabel?.classList.add("hidden");
+      }
+    });
+  };
+
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>

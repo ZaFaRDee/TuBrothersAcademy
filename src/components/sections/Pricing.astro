@@ -1,0 +1,102 @@
+---
+import Container from "~/components/ui/Container.astro";
+import Section from "~/components/ui/Section.astro";
+import SectionHeading from "~/components/ui/SectionHeading.astro";
+import { PLANS } from "~/data/pricing";
+---
+
+<Section id="pricing" size="lg" bg="alt">
+  <Container>
+    <SectionHeading
+      eyebrow="Pricing"
+      title="Pick the path that <span class='gradient-text'>matches your ambition</span>."
+      subtitle="Courses are launching soon. Save your seat now — early supporters get founding-member rates and direct access to the founder."
+    />
+
+    <div class="anim-on-scroll mt-10 max-w-2xl mx-auto rounded-2xl bg-white border border-ink-100 px-5 py-4 flex items-start sm:items-center gap-3 shadow-sm text-sm text-ink-600">
+      <span class="grid place-items-center size-9 rounded-xl bg-brand-50 text-brand-700 shrink-0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4">
+          <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+        </svg>
+      </span>
+      <p>
+        <strong class="text-ink-900">Heads up:</strong> we're not selling courses yet. The plans below are a preview of what's coming. Use the waitlist button to be first in line.
+      </p>
+    </div>
+
+    <div class="mt-14 grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      {PLANS.map((plan, i) => (
+        <div
+          class:list={[
+            "anim-on-scroll group relative flex flex-col rounded-3xl p-7 md:p-8 transition-all duration-500 hover:-translate-y-2",
+            plan.highlight
+              ? "bg-gradient-to-br from-ink-900 via-ink-950 to-brand-950 text-white ring-1 ring-brand-500/40 shadow-brand-lg lg:scale-[1.03] lg:my-[-12px]"
+              : "bg-white text-ink-900 ring-1 ring-ink-100 shadow-sm hover:shadow-xl",
+          ]}
+          style={`transition-delay: ${i * 100}ms`}
+        >
+          {plan.badge && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-brand-600 text-white text-[11px] font-bold uppercase tracking-wider shadow-lg">
+              {plan.badge}
+            </div>
+          )}
+
+          <div class="flex items-center justify-between gap-4">
+            <h3 class:list={["text-lg font-display font-bold uppercase tracking-wider", plan.highlight ? "text-brand-300" : "text-brand-700"]}>
+              {plan.name}
+            </h3>
+            <div class:list={["text-xs px-2.5 py-1 rounded-full", plan.highlight ? "bg-white/10 text-white/70" : "bg-brand-50 text-brand-700"]}>
+              Preview
+            </div>
+          </div>
+          <p class:list={["mt-3 text-sm leading-relaxed min-h-[3.25rem]", plan.highlight ? "text-white/70" : "text-ink-500"]}>{plan.tagline}</p>
+
+          <div class="mt-6 flex items-baseline gap-2">
+            <span class:list={["text-5xl font-display font-bold", plan.highlight ? "text-white" : "text-ink-900"]}>${plan.price}</span>
+            <span class:list={["text-sm line-through", plan.highlight ? "text-white/40" : "text-ink-400"]}>${plan.originalPrice}+</span>
+          </div>
+
+          <ul class:list={["mt-7 space-y-3 text-sm flex-1", plan.highlight ? "text-white/85" : "text-ink-700"]}>
+            {plan.features.map((f) => (
+              <li class:list={["flex items-start gap-3", !f.included && "opacity-40"]}>
+                {f.included ? (
+                  <span class:list={["grid place-items-center size-5 rounded-full shrink-0 mt-0.5", plan.highlight ? "bg-brand-500 text-white" : "bg-brand-100 text-brand-700"]}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="size-3">
+                      <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                ) : (
+                  <span class:list={["grid place-items-center size-5 rounded-full shrink-0 mt-0.5", plan.highlight ? "bg-white/10 text-white/40" : "bg-ink-100 text-ink-400"]}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="size-3">
+                      <line x1="18" y1="6" x2="6" y2="18" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                )}
+                <span class:list={["leading-snug", !f.included && "line-through"]}>{f.label}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={`/contact?plan=${plan.id}`}
+            class:list={[
+              "mt-8 inline-flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl font-semibold transition-all duration-300",
+              plan.highlight
+                ? "bg-white text-brand-700 hover:bg-brand-50 hover:-translate-y-0.5 shadow-lg"
+                : "bg-ink-900 text-white hover:bg-brand-700 hover:-translate-y-0.5",
+            ]}
+          >
+            Join the waitlist
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="size-4">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="anim-on-scroll mt-10 text-center text-sm text-ink-500">
+      30-day money-back guarantee · Lifetime access to materials · Cancel anytime
+    </div>
+  </Container>
+</Section>

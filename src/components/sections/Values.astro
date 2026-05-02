@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import Container from "~/components/ui/Container.astro";
+import Section from "~/components/ui/Section.astro";
+import { VALUES } from "~/data/stats";
+import portrait from "~/assets/images/portrait/3.JPEG";
+
+const ICONS: Record<string, string> = {
+  users: '<path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',
+  "list-checks": '<path d="M11 6h10M11 12h10M11 18h10"/><path d="M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17"/>',
+  award: '<circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 22l5-3 5 3-1.21-8.11"/>',
+  "shield-check": '<path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/>',
+};
+---
+<Section size="lg" bg="white">
+  <Container>
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="anim-on-scroll inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-semibold tracking-[0.18em] uppercase rounded-full bg-brand-50 text-brand-700 border border-brand-100">
+          <span class="size-1.5 rounded-full bg-current"></span>
+          Why us
+        </div>
+        <h2 class="anim-on-scroll delay-1 text-balance text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight">
+          Learn from people who've actually <span class="gradient-text">done the work</span>.
+        </h2>
+        <p class="anim-on-scroll delay-2 mt-5 text-pretty text-base md:text-lg text-ink-500 leading-relaxed">
+          No fluff. No theatre. Just the methods we use every shift in the world's most demanding rooms — broken down so you can apply them tomorrow.
+        </p>
+
+        <ul class="mt-10 space-y-4">
+          {VALUES.map((v, i) => (
+            <li class="anim-on-scroll flex items-start gap-4" style={`transition-delay: ${i * 90 + 200}ms`}>
+              <span class="grid place-items-center size-11 rounded-xl bg-brand-50 text-brand-700 ring-1 ring-brand-100 shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-5" set:html={ICONS[v.icon]} />
+              </span>
+              <div>
+                <div class="font-semibold text-ink-900">{v.title}</div>
+                <div class="text-sm text-ink-500 mt-1 leading-relaxed">{v.body}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <div class="relative aspect-[4/5] max-w-[520px] mx-auto">
+          <div aria-hidden="true" class="absolute inset-0 rounded-[40px] border border-brand-200 translate-x-4 translate-y-4"></div>
+          <div class="anim-zoom-in relative aspect-[4/5] rounded-[40px] overflow-hidden ring-1 ring-ink-100 shadow-2xl shadow-brand-900/15">
+            <Image src={portrait} alt="Diyorbek Turgunboev — Founder, TU Brothers Academy" widths={[400, 600, 800, 1000]} sizes="(min-width: 1024px) 520px, 90vw" class="w-full h-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink-950/80 via-ink-950/30 to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 glass rounded-2xl p-4 flex items-center gap-3">
+              <div class="grid place-items-center size-10 rounded-full bg-brand-600 text-white font-bold">DT</div>
+              <div>
+                <div class="font-semibold text-ink-900">Diyorbek Turgunboev</div>
+                <div class="text-xs text-ink-500">Founder · Service Training Specialist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="anim-zoom-in delay-3 absolute -top-4 -left-4 sm:-left-8 px-4 py-3 rounded-2xl bg-white shadow-xl ring-1 ring-ink-100 animate-float-y">
+            <div class="text-2xl font-display font-bold gradient-text">8+ yrs</div>
+            <div class="text-xs text-ink-500">in fine dining</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>

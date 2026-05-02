@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import Container from "~/components/ui/Container.astro";
+import Section from "~/components/ui/Section.astro";
+
+const articles = (await getCollection("articles"))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 4);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+---
+<Section id="articles" size="lg" bg="dark">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 grid-pattern opacity-20"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute -top-32 right-0 size-[500px] rounded-full bg-brand-700/30 blur-[120px]"></div>
+
+  <Container class="relative">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div class="max-w-2xl">
+        <div class="anim-on-scroll inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-semibold tracking-[0.18em] uppercase rounded-full bg-white/10 text-white border border-white/20">
+          <span class="size-1.5 rounded-full bg-brand-400"></span>
+          Insights from the field
+        </div>
+        <h2 class="anim-on-scroll delay-1 text-balance text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight text-white">
+          Read the latest from the <span class="animate-shimmer">academy</span>.
+        </h2>
+      </div>
+      <a href="/articles" class="anim-on-scroll delay-2 inline-flex items-center gap-2 text-brand-300 font-semibold hover:text-white hover:gap-3 transition-all">
+        All articles
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="size-4"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 gap-5 md:gap-6">
+      {articles.map((a, i) => (
+        <a
+          href={`/articles/${a.id}`}
+          class="anim-on-scroll group relative overflow-hidden rounded-3xl bg-white/[0.04] border border-white/10 p-7 md:p-8 hover:bg-white/[0.07] hover:border-brand-400/40 transition-all duration-500 flex flex-col"
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <div aria-hidden="true" class="pointer-events-none absolute -top-20 -right-20 size-48 rounded-full bg-brand-500/0 group-hover:bg-brand-500/20 blur-3xl transition-colors duration-700"></div>
+
+          <div class="relative flex items-center gap-2 text-xs text-white/50 font-medium">
+            <time datetime={a.data.publishedAt.toISOString()}>{fmt(a.data.publishedAt)}</time>
+            <span class="size-1 rounded-full bg-white/30"></span>
+            <span>{a.data.readingMinutes} min read</span>
+          </div>
+
+          <h3 class="relative mt-4 text-xl md:text-2xl font-display font-bold text-white leading-snug group-hover:text-brand-300 transition-colors">
+            {a.data.title}
+          </h3>
+          <p class="relative mt-3 text-white/60 leading-relaxed text-sm md:text-base line-clamp-3">
+            {a.data.excerpt}
+          </p>
+
+          <div class="relative mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
+            <div class="flex flex-wrap gap-2">
+              {a.data.tags.slice(0, 2).map((t) => (
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/5 text-white/60 text-[11px] font-semibold uppercase tracking-wider">{t}</span>
+              ))}
+            </div>
+            <span class="text-brand-400 font-semibold text-sm transition-transform group-hover:translate-x-1">Read →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </Container>
+</Section>
