@@ -1,0 +1,84 @@
+---
+import "~/styles/global.css";
+import SEO from "~/components/seo/SEO.astro";
+import Header from "~/components/layout/Header.astro";
+import Footer from "~/components/layout/Footer.astro";
+import FinalCTA from "~/components/sections/FinalCTA.astro";
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+  publishedTime?: string;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
+  hideFinalCTA?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  type,
+  noindex,
+  publishedTime,
+  hideHeader = false,
+  hideFooter = false,
+  hideFinalCTA = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <SEO {title} {description} {image} {type} {noindex} {publishedTime} />
+    <ClientRouter />
+  </head>
+  <body class="bg-white text-ink-900 antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:rounded-lg"
+    >
+      Skip to content
+    </a>
+
+    {!hideHeader && <Header />}
+
+    <main id="main">
+      <slot />
+    </main>
+
+    {!hideFinalCTA && <FinalCTA />}
+    {!hideFooter && <Footer />}
+
+    <script>
+      const init = () => {
+        const els = document.querySelectorAll<HTMLElement>(
+          ".anim-on-scroll, .anim-fade-in, .anim-zoom-in, .anim-slide-r, .anim-slide-l"
+        );
+        if (!("IntersectionObserver" in window)) {
+          els.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+        );
+        els.forEach((el) => io.observe(el));
+      };
+
+      init();
+      document.addEventListener("astro:page-load", init);
+    </script>
+  </body>
+</html>

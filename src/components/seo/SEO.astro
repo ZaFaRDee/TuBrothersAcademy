@@ -1,0 +1,101 @@
+---
+import { SITE } from "~/data/site";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+  publishedTime?: string;
+  author?: string;
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = "/og-default.svg",
+  canonical,
+  type = "website",
+  noindex = false,
+  publishedTime,
+  author = SITE.founder,
+} = Astro.props;
+
+const fullTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site ?? SITE.url).toString();
+const imageURL = new URL(image, Astro.site ?? SITE.url).toString();
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: SITE.name,
+  url: SITE.url,
+  logo: new URL("/favicon.svg", SITE.url).toString(),
+  email: SITE.email,
+  telephone: SITE.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "63-48 Alderton St",
+    addressLocality: "Flushing",
+    addressRegion: "NY",
+    postalCode: "11374",
+    addressCountry: "US",
+  },
+  sameAs: Object.values(SITE.social),
+  founder: { "@type": "Person", name: SITE.founder },
+};
+
+const articleSchema = type === "article" && {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  image: imageURL,
+  datePublished: publishedTime,
+  author: { "@type": "Person", name: author },
+  publisher: {
+    "@type": "Organization",
+    name: SITE.name,
+    logo: { "@type": "ImageObject", url: new URL("/favicon.svg", SITE.url).toString() },
+  },
+};
+---
+
+<title>{fullTitle}</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="theme-color" content="#6149E8" />
+<link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+/>
+
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
