@@ -32,7 +32,7 @@ const orgSchema = {
   "@type": "EducationalOrganization",
   name: SITE.name,
   url: SITE.url,
-  logo: new URL("/favicon.svg", SITE.url).toString(),
+  logo: new URL("/favicon-512.png", SITE.url).toString(),
   email: SITE.email,
   telephone: SITE.phone,
   address: {
@@ -58,7 +58,7 @@ const articleSchema = type === "article" && {
   publisher: {
     "@type": "Organization",
     name: SITE.name,
-    logo: { "@type": "ImageObject", url: new URL("/favicon.svg", SITE.url).toString() },
+    logo: { "@type": "ImageObject", url: new URL("/favicon-512.png", SITE.url).toString() },
   },
 };
 ---
@@ -73,7 +73,9 @@ const articleSchema = type === "article" && {
 <link rel="canonical" href={canonicalURL} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
 <meta property="og:type" content={type} />

@@ -21,8 +21,9 @@ const pathname = Astro.url.pathname;
         <Image
           src={logoLight}
           alt={SITE.name}
-          width={140}
+          width={230}
           height={40}
+          densities={[1, 2, 3]}
           loading="eager"
           class="h-9 md:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
         />
@@ -84,7 +85,7 @@ const pathname = Astro.url.pathname;
       class="absolute inset-x-3 top-3 rounded-3xl bg-ink-950 border border-white/10 shadow-2xl p-6 translate-y-[-20px] opacity-0 transition-all duration-400 ease-out"
     >
       <div class="flex items-center justify-between mb-6">
-        <Image src={logoLight} alt={SITE.name} width={120} height={32} class="h-8 w-auto" />
+        <Image src={logoLight} alt={SITE.name} width={184} height={32} densities={[1, 2, 3]} class="h-8 w-auto" />
         <button
           id="mobile-menu-close"
           class="grid place-items-center size-10 rounded-xl bg-white/5 hover:bg-white/10 text-white"
