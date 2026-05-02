@@ -61,14 +61,20 @@ const story = [
         >
           <div class="lg:col-span-7 [direction:ltr]">
             <div class="relative aspect-[5/4] max-w-[640px] mx-auto">
-              <div class="anim-zoom-in absolute top-0 left-0 w-[58%] aspect-square rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl">
-                <Image src={block.images[0]} alt="" widths={[400, 600, 800]} sizes="(min-width: 1024px) 360px, 60vw" class="w-full h-full object-cover" />
+              <div class="anim-zoom-in absolute top-0 left-0 w-[58%] aspect-square hover:z-50 group">
+                <div class="relative w-full h-full rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl transition-all duration-500 ease-out group-hover:scale-110 group-hover:shadow-2xl group-hover:ring-brand-300/70 cursor-pointer">
+                  <Image src={block.images[0]} alt="" widths={[400, 600, 800]} sizes="(min-width: 1024px) 360px, 60vw" class="w-full h-full object-cover" />
+                </div>
               </div>
-              <div class="anim-zoom-in delay-2 absolute top-12 right-0 w-[48%] aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl">
-                <Image src={block.images[1]} alt="" widths={[300, 500, 600]} sizes="(min-width: 1024px) 280px, 50vw" class="w-full h-full object-cover" />
+              <div class="anim-zoom-in delay-2 absolute top-12 right-0 w-[48%] aspect-[3/4] hover:z-50 group">
+                <div class="relative w-full h-full rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl transition-all duration-500 ease-out group-hover:scale-110 group-hover:shadow-2xl group-hover:ring-brand-300/70 cursor-pointer">
+                  <Image src={block.images[1]} alt="" widths={[300, 500, 600]} sizes="(min-width: 1024px) 280px, 50vw" class="w-full h-full object-cover" />
+                </div>
               </div>
-              <div class="anim-zoom-in delay-3 absolute bottom-0 left-[18%] w-[44%] aspect-square rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl">
-                <Image src={block.images[2]} alt="" widths={[300, 500, 600]} sizes="(min-width: 1024px) 260px, 45vw" class="w-full h-full object-cover" />
+              <div class="anim-zoom-in delay-3 absolute bottom-0 left-[18%] w-[44%] aspect-square hover:z-50 group">
+                <div class="relative w-full h-full rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl transition-all duration-500 ease-out group-hover:scale-110 group-hover:shadow-2xl group-hover:ring-brand-300/70 cursor-pointer">
+                  <Image src={block.images[2]} alt="" widths={[300, 500, 600]} sizes="(min-width: 1024px) 260px, 45vw" class="w-full h-full object-cover" />
+                </div>
               </div>
               <div aria-hidden="true" class="absolute -bottom-6 -right-6 size-24 rounded-full dot-pattern opacity-60"></div>
             </div>
