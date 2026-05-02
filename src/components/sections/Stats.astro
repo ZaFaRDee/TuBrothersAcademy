@@ -1,0 +1,48 @@
+---
+import Container from "~/components/ui/Container.astro";
+import { STATS } from "~/data/stats";
+---
+<section class="relative bg-white py-12 md:py-16">
+  <Container>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px rounded-3xl overflow-hidden bg-ink-100 ring-1 ring-ink-100">
+      {STATS.map((s, i) => (
+        <div class="anim-on-scroll bg-white p-6 md:p-8 text-center md:text-left" style={`transition-delay: ${i * 80}ms`}>
+          <div class="flex items-baseline gap-1 justify-center md:justify-start">
+            <span class="text-4xl md:text-5xl font-display font-bold gradient-text" data-counter={s.value}>0</span>
+            <span class="text-3xl md:text-4xl font-display font-bold text-brand-600">{s.suffix}</span>
+          </div>
+          <p class="mt-2 text-sm text-ink-500 font-medium">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<script>
+  const animate = () => {
+    const counters = document.querySelectorAll<HTMLElement>("[data-counter]");
+    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const el = e.target as HTMLElement;
+          const target = Number(el.dataset.counter ?? "0");
+          const duration = 1600;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min(1, (now - start) / duration);
+            el.textContent = String(Math.round(easeOut(p) * target));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(el);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    counters.forEach((c) => io.observe(c));
+  };
+  animate();
+  document.addEventListener("astro:page-load", animate);
+</script>

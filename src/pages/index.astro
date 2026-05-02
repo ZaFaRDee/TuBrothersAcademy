@@ -1,8 +1,16 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import Hero from "~/components/sections/Hero.astro";
+import Stats from "~/components/sections/Stats.astro";
+import About from "~/components/sections/About.astro";
+import HowItWorks from "~/components/sections/HowItWorks.astro";
 ---
-<BaseLayout title="Home">
-  <section class="pt-32 pb-20 text-center container-page">
-    <h1 class="text-4xl font-bold">Foundation laid — sections coming next</h1>
-  </section>
+<BaseLayout
+  title="World-class hospitality training, on demand"
+  description="TU Brothers Academy is an online training platform for waiters, sommeliers, bartenders and operators — built by industry veterans who served the world's finest dining rooms across 40+ countries."
+>
+  <Hero />
+  <Stats />
+  <About />
+  <HowItWorks />
 </BaseLayout>

@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import Container from "~/components/ui/Container.astro";
+import SectionHeading from "~/components/ui/SectionHeading.astro";
+import Section from "~/components/ui/Section.astro";
+
+import a1 from "~/assets/images/about/1.jpg";
+import a2 from "~/assets/images/about/2.jpg";
+import a3 from "~/assets/images/about/3.jpg";
+import a4 from "~/assets/images/about/4.jpg";
+import a5 from "~/assets/images/about/5.jpg";
+import a6 from "~/assets/images/about/6.jpg";
+import a7 from "~/assets/images/about/7.jpg";
+import a8 from "~/assets/images/about/8.jpg";
+import a9 from "~/assets/images/about/9.jpg";
+import a10 from "~/assets/images/about/10.jpg";
+import a11 from "~/assets/images/about/11.jpg";
+import a12 from "~/assets/images/about/12.jpg";
+
+const story = [
+  {
+    side: "left",
+    images: [a1, a2, a3],
+    copy: `Imagine you've landed the job of your dreams — opening your own restaurant, or earning a place in one of the finest dining rooms in your country. Then come the hard parts: unhappy guests, online reviews, service slips. The dream begins to wobble. Many talented people quit here.`,
+  },
+  {
+    side: "right",
+    images: [a4, a5, a6],
+    copy: `That's where TU Brothers Academy steps in. I'm <strong>Diyorbek Turgunboev</strong>, and I've spent over eight years inside the international restaurant and hospitality industry — learning what works, where it breaks, and how to fix it under real pressure.`,
+  },
+  {
+    side: "left",
+    images: [a7, a8, a9],
+    copy: `My path started in a modest street-side eatery called FaruxFayz and led me to fine dining rooms in Qatar, Dubai, and the SilverSea cruise lines — across <strong>40+ countries and 171 cities</strong> by the age of 26. The lessons I learned there are not in textbooks.`,
+  },
+  {
+    side: "right",
+    images: [a10, a11, a12],
+    copy: `Today I work as a Service Training Specialist and lead TU Brothers Academy — an online platform built to give you the skills that high-end rooms expect. From your first walk to a table to running your own venue, we cover the craft end-to-end.`,
+  },
+];
+---
+
+<Section id="about" size="lg" bg="white" class="!overflow-visible">
+  <div aria-hidden="true" class="pointer-events-none absolute top-1/4 -left-40 size-[500px] rounded-full bg-brand-100/60 blur-[100px]"></div>
+
+  <Container class="relative">
+    <SectionHeading
+      eyebrow="Our story"
+      title="Built by people who served the <span class='gradient-text'>world's finest rooms</span>."
+      subtitle="The craft of hospitality is learned in the trenches. We bring you the lessons we earned across 40+ countries and 171 cities."
+    />
+
+    <div class="mt-20 space-y-24 md:space-y-32">
+      {story.map((block, idx) => (
+        <div
+          class:list={[
+            "grid lg:grid-cols-12 gap-10 lg:gap-16 items-center",
+            block.side === "right" ? "lg:[direction:rtl]" : "",
+          ]}
+        >
+          <div class="lg:col-span-7 [direction:ltr]">
+            <div class="relative aspect-[5/4] max-w-[640px] mx-auto">
+              <div class="anim-zoom-in absolute top-0 left-0 w-[58%] aspect-square rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl">
+                <Image src={block.images[0]} alt="" widths={[400, 600, 800]} sizes="(min-width: 1024px) 360px, 60vw" class="w-full h-full object-cover" />
+              </div>
+              <div class="anim-zoom-in delay-2 absolute top-12 right-0 w-[48%] aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl">
+                <Image src={block.images[1]} alt="" widths={[300, 500, 600]} sizes="(min-width: 1024px) 280px, 50vw" class="w-full h-full object-cover" />
+              </div>
+              <div class="anim-zoom-in delay-3 absolute bottom-0 left-[18%] w-[44%] aspect-square rounded-3xl overflow-hidden ring-1 ring-ink-100 shadow-xl">
+                <Image src={block.images[2]} alt="" widths={[300, 500, 600]} sizes="(min-width: 1024px) 260px, 45vw" class="w-full h-full object-cover" />
+              </div>
+              <div aria-hidden="true" class="absolute -bottom-6 -right-6 size-24 rounded-full dot-pattern opacity-60"></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 [direction:ltr]">
+            <div class="anim-on-scroll inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-brand-600 mb-4">
+              <span class="size-1.5 rounded-full bg-brand-600"></span>
+              Chapter {String(idx + 1).padStart(2, "0")}
+            </div>
+            <p class="anim-on-scroll delay-1 text-lg md:text-xl leading-relaxed text-ink-700" set:html={block.copy} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>

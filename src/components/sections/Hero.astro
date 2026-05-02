@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+import Container from "~/components/ui/Container.astro";
+import Button from "~/components/ui/Button.astro";
+import hero1 from "~/assets/images/hero/1.jpg";
+import hero2 from "~/assets/images/hero/2.jpg";
+import hero3 from "~/assets/images/hero/3.jpg";
+---
+
+<section class="relative isolate overflow-hidden bg-ink-950 text-white pt-32 pb-20 md:pt-40 md:pb-32">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-32 -left-24 size-[520px] rounded-full bg-brand-700/40 blur-[120px] animate-blob"></div>
+    <div class="absolute top-1/3 -right-32 size-[600px] rounded-full bg-brand-500/30 blur-[140px] animate-blob" style="animation-delay: -6s;"></div>
+    <div class="absolute -bottom-40 left-1/3 size-[480px] rounded-full bg-brand-900/50 blur-[120px] animate-blob" style="animation-delay: -12s;"></div>
+  </div>
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 opacity-[0.18] grid-pattern mask-fade-b"></div>
+
+  <Container>
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div class="lg:col-span-7 max-w-2xl">
+        <div class="anim-on-scroll inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur text-xs font-semibold tracking-[0.18em] uppercase text-white/80 mb-7">
+          <span class="relative flex size-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full size-2 bg-brand-500"></span>
+          </span>
+          New cohort opens soon
+        </div>
+
+        <h1 class="anim-on-scroll delay-1 text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.02] tracking-tight">
+          Master the craft of
+          <span class="block mt-2 animate-shimmer">world-class hospitality.</span>
+        </h1>
+
+        <p class="anim-on-scroll delay-2 mt-7 text-pretty text-lg md:text-xl text-white/70 max-w-xl leading-relaxed">
+          On-demand training for waiters, sommeliers, bartenders and operators — built by professionals who served the world's finest dining rooms across <strong class="text-white font-semibold">40+ countries</strong>.
+        </p>
+
+        <div class="anim-on-scroll delay-3 mt-9 flex flex-wrap items-center gap-3">
+          <Button href="/courses" size="lg" variant="primary">
+            Explore courses
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="size-4 transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </Button>
+          <Button href="/about" size="lg" variant="white" class="!bg-white/10 !text-white hover:!bg-white/20 backdrop-blur border border-white/15">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4">
+              <polygon points="5,3 19,12 5,21" fill="currentColor" />
+            </svg>
+            Watch the story
+          </Button>
+        </div>
+
+        <div class="anim-on-scroll delay-4 mt-12 grid grid-cols-3 gap-3 max-w-md">
+          {[
+            ["8+", "Years experience"],
+            ["40+", "Countries"],
+            ["171", "Cities"],
+          ].map(([num, label]) => (
+            <div class="px-4 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur">
+              <div class="text-2xl md:text-3xl font-display font-bold text-white">{num}</div>
+              <div class="text-xs text-white/60 mt-0.5">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative h-[440px] sm:h-[500px] lg:h-[560px]" data-mouse-parallax>
+        <div aria-hidden="true" class="absolute inset-0 grid place-items-center">
+          <div class="size-[420px] sm:size-[480px] rounded-full border border-white/10 animate-spin-slow"></div>
+          <div class="absolute size-[320px] sm:size-[360px] rounded-full border border-brand-400/20"></div>
+        </div>
+
+        <div class="anim-zoom-in absolute top-0 right-6 sm:right-12 w-44 sm:w-52 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-brand-900/50 ring-1 ring-white/10 animate-float-y" data-parallax-strength="20">
+          <Image src={hero1} alt="Service in a fine dining room" widths={[200, 300, 400]} sizes="200px" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="anim-zoom-in delay-2 absolute top-32 left-2 sm:left-6 w-44 sm:w-56 aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-brand-900/50 ring-1 ring-white/10 animate-float-y-slow" data-parallax-strength="36">
+          <Image src={hero2} alt="Wine tasting and pairing" widths={[200, 300, 400]} sizes="220px" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="anim-zoom-in delay-4 absolute bottom-0 right-0 w-52 sm:w-64 aspect-[5/4] rounded-2xl overflow-hidden shadow-2xl shadow-brand-900/50 ring-1 ring-white/10 animate-float-y" style="animation-delay: -3s;" data-parallax-strength="14">
+          <Image src={hero3} alt="Bartender at work" widths={[260, 360, 480]} sizes="260px" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="anim-zoom-in delay-3 absolute top-[44%] right-[42%] glass-dark rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl">
+          <div class="grid place-items-center size-9 rounded-xl bg-brand-600">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" class="size-4 text-white">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="text-xs">
+            <div class="font-semibold text-white">5★ standard</div>
+            <div class="text-white/60">Service-first mindset</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+
+  <svg aria-hidden="true" class="absolute bottom-0 inset-x-0 w-full h-16 md:h-24 text-white" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="currentColor">
+    <path d="M0,64 C240,120 480,0 720,40 C960,80 1200,120 1440,72 L1440,120 L0,120 Z"/>
+  </svg>
+</section>
+
+<script>
+  const init = () => {
+    const wrap = document.querySelector<HTMLElement>("[data-mouse-parallax]");
+    if (!wrap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const items = wrap.querySelectorAll<HTMLElement>("[data-parallax-strength]");
+    let raf = 0;
+    let target = { x: 0, y: 0 };
+    let current = { x: 0, y: 0 };
+
+    const onMove = (e: MouseEvent) => {
+      const rect = wrap.getBoundingClientRect();
+      target.x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+      target.y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+    };
+
+    const tick = () => {
+      current.x += (target.x - current.x) * 0.08;
+      current.y += (target.y - current.y) * 0.08;
+      items.forEach((item) => {
+        const s = Number(item.dataset.parallaxStrength ?? "20");
+        item.style.transform = `translate(${current.x * s}px, ${current.y * s}px)`;
+      });
+      raf = requestAnimationFrame(tick);
+    };
+
+    wrap.addEventListener("mousemove", onMove);
+    wrap.addEventListener("mouseleave", () => { target = { x: 0, y: 0 }; });
+    raf = requestAnimationFrame(tick);
+  };
+
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>

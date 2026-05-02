@@ -1,0 +1,42 @@
+---
+import Container from "~/components/ui/Container.astro";
+import SectionHeading from "~/components/ui/SectionHeading.astro";
+import Section from "~/components/ui/Section.astro";
+import { HOW_IT_WORKS } from "~/data/stats";
+
+const ICONS: Record<string, string> = {
+  compass: '<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" stroke="none"/>',
+  play: '<polygon points="6,4 20,12 6,20" fill="currentColor" stroke="currentColor" stroke-linejoin="round"/>',
+  award: '<circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 22l5-3 5 3-1.21-8.11" stroke-linecap="round" stroke-linejoin="round"/>',
+};
+---
+<Section id="how-it-works" size="lg" bg="alt">
+  <Container>
+    <SectionHeading
+      eyebrow="How it works"
+      title="From browse to mastery — <span class='gradient-text'>three simple steps</span>."
+      subtitle="Start at your own pace. Build skills you can actually use the next shift."
+    />
+
+    <div class="mt-16 md:mt-20 grid md:grid-cols-3 gap-6 md:gap-8 relative">
+      <div aria-hidden="true" class="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-brand-300 to-transparent"></div>
+
+      {HOW_IT_WORKS.map((s, i) => (
+        <div class="anim-on-scroll relative group" style={`transition-delay: ${i * 120}ms`}>
+          <div class="relative z-10 flex flex-col items-center text-center md:items-start md:text-left bg-white rounded-3xl p-8 ring-1 ring-ink-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 h-full">
+            <div class="relative">
+              <div class="grid place-items-center size-20 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 text-white shadow-brand-md group-hover:scale-110 transition-transform duration-500">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="size-9" set:html={ICONS[s.icon]} />
+              </div>
+              <span class="absolute -top-2 -right-2 grid place-items-center size-9 rounded-full bg-ink-900 text-white text-xs font-bold ring-4 ring-ink-50">
+                {s.step}
+              </span>
+            </div>
+            <h3 class="mt-6 text-2xl font-display font-bold text-ink-900">{s.title}</h3>
+            <p class="mt-3 text-ink-500 leading-relaxed">{s.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>
