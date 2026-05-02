@@ -1,0 +1,64 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PageHero from "~/components/ui/PageHero.astro";
+import Container from "~/components/ui/Container.astro";
+import { SITE } from "~/data/site";
+
+const updated = "May 2, 2026";
+---
+
+<BaseLayout title="Privacy Policy" description="How TU Brothers Academy collects, uses, and protects your data." hideFinalCTA={true}>
+  <PageHero
+    eyebrow="Legal"
+    title="Privacy Policy"
+    subtitle={`Last updated: ${updated}`}
+  />
+
+  <section class="py-16 md:py-24 bg-white">
+    <Container>
+      <div class="mx-auto max-w-3xl prose-tu text-lg leading-[1.85] text-ink-700">
+        <h2>Overview</h2>
+        <p>
+          {SITE.name} ("we", "our") respects your privacy. This page explains what data we collect when you visit
+          our site, why we collect it, and the choices you have.
+        </p>
+
+        <h2>Information we collect</h2>
+        <ul>
+          <li><strong>Contact form:</strong> name, email, the topic you select, and the message you write.</li>
+          <li><strong>Analytics:</strong> aggregated, anonymous information about pages visited and approximate region — no personal identifiers.</li>
+          <li><strong>Cookies:</strong> only essential cookies required for the site to function. We do not use ad-tracking cookies.</li>
+        </ul>
+
+        <h2>How we use it</h2>
+        <p>
+          We use your contact details solely to respond to your message and, with your consent, to send you
+          updates about cohorts. You can unsubscribe at any time.
+        </p>
+
+        <h2>Data retention</h2>
+        <p>
+          Contact submissions are retained for as long as needed to maintain our conversation history. You can
+          request deletion at any time by writing to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+        </p>
+
+        <h2>Third-party services</h2>
+        <p>
+          We use trusted infrastructure providers (hosting, email delivery, analytics). These providers are
+          contractually bound to handle your data only to deliver their service.
+        </p>
+
+        <h2>Your rights</h2>
+        <p>
+          You have the right to access, correct, export, or delete the personal data we hold about you. Contact
+          us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a> for any of these requests.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For privacy questions, write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+        </p>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

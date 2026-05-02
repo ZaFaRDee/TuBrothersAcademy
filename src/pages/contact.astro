@@ -1,0 +1,18 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PageHero from "~/components/ui/PageHero.astro";
+import Contact from "~/components/sections/Contact.astro";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with TU Brothers Academy — questions about the program, partnerships, or speaking inquiries."
+  hideFinalCTA={true}
+>
+  <PageHero
+    eyebrow="Contact"
+    title="Let's <span class='animate-shimmer'>connect</span>."
+    subtitle="Questions about the program, partnerships, or speaking inquiries — we'd love to hear from you."
+  />
+  <Contact hideHeading={true} />
+</BaseLayout>

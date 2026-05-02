@@ -1,0 +1,23 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PageHero from "~/components/ui/PageHero.astro";
+import About from "~/components/sections/About.astro";
+import Stats from "~/components/sections/Stats.astro";
+import Values from "~/components/sections/Values.astro";
+import Partners from "~/components/sections/Partners.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="The story of TU Brothers Academy and its founder Diyorbek Turgunboev — 8+ years across the world's finest dining rooms."
+>
+  <PageHero
+    eyebrow="Our story"
+    title="Service is a craft. <span class='animate-shimmer'>We teach the craft.</span>"
+    subtitle="From a street-side eatery in Uzbekistan to fine dining rooms across 40+ countries — the journey behind the academy."
+  />
+  <Stats />
+  <About />
+  <Values />
+  <Partners />
+</BaseLayout>

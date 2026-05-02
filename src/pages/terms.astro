@@ -1,0 +1,64 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PageHero from "~/components/ui/PageHero.astro";
+import Container from "~/components/ui/Container.astro";
+import { SITE } from "~/data/site";
+
+const updated = "May 2, 2026";
+---
+
+<BaseLayout title="Terms of Use" description="The terms governing your use of the TU Brothers Academy website." hideFinalCTA={true}>
+  <PageHero
+    eyebrow="Legal"
+    title="Terms of Use"
+    subtitle={`Last updated: ${updated}`}
+  />
+
+  <section class="py-16 md:py-24 bg-white">
+    <Container>
+      <div class="mx-auto max-w-3xl prose-tu text-lg leading-[1.85] text-ink-700">
+        <h2>Acceptance of terms</h2>
+        <p>
+          By accessing and using {SITE.name} (the "Service"), you agree to these Terms. If you do not agree,
+          please do not use the Service.
+        </p>
+
+        <h2>Use of content</h2>
+        <p>
+          All articles, course descriptions, designs, and graphics are owned by {SITE.name} unless stated
+          otherwise. You may share excerpts with clear attribution and a link back. You may not reproduce
+          substantial portions of our content without written permission.
+        </p>
+
+        <h2>User submissions</h2>
+        <p>
+          Information you send us via the contact form is treated according to our <a href="/privacy">Privacy Policy</a>.
+          Do not send sensitive personal data, payment details, or confidential information through the form.
+        </p>
+
+        <h2>No warranty</h2>
+        <p>
+          The Service is provided "as is" without warranties of any kind. We make no guarantees that the
+          Service will be available without interruption or that the information will be free from errors.
+        </p>
+
+        <h2>Limitation of liability</h2>
+        <p>
+          To the maximum extent permitted by law, {SITE.name} shall not be liable for any indirect,
+          incidental, or consequential damages arising from your use of the Service.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          We may update these Terms from time to time. The "Last updated" date at the top reflects the most
+          recent revision. Material changes will be highlighted on this page.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about these Terms? Write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+        </p>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

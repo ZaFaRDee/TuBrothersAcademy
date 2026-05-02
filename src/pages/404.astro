@@ -1,0 +1,32 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Button from "~/components/ui/Button.astro";
+---
+
+<BaseLayout title="Page not found" noindex={true} hideFinalCTA={true} hideFooter={true}>
+  <section class="relative isolate overflow-hidden bg-ink-950 text-white min-h-[100svh] grid place-items-center pt-32 pb-20">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute -top-40 -left-40 size-[600px] rounded-full bg-brand-700/40 blur-[140px] animate-blob"></div>
+      <div class="absolute -bottom-40 -right-40 size-[600px] rounded-full bg-brand-500/30 blur-[140px] animate-blob" style="animation-delay: -8s;"></div>
+    </div>
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 grid-pattern opacity-15 mask-fade-b"></div>
+
+    <div class="container-page text-center">
+      <div class="anim-on-scroll text-[120px] sm:text-[180px] md:text-[220px] font-display font-bold leading-none animate-shimmer">
+        404
+      </div>
+      <h1 class="anim-on-scroll delay-1 mt-2 text-3xl md:text-5xl font-display font-bold text-balance">
+        We can't find that page.
+      </h1>
+      <p class="anim-on-scroll delay-2 mt-5 text-white/70 text-lg max-w-md mx-auto">
+        The link may have moved, or it never existed. Let's get you back to something useful.
+      </p>
+      <div class="anim-on-scroll delay-3 mt-8 flex flex-wrap items-center justify-center gap-3">
+        <Button href="/" size="lg" variant="primary">Back to home</Button>
+        <Button href="/articles" size="lg" variant="white" class="!bg-white/10 !text-white hover:!bg-white/20 backdrop-blur border border-white/15">
+          Read articles
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
